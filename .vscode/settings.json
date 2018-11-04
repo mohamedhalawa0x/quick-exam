@@ -1,0 +1,11 @@
+{
+    "python.pythonPath": "~/.virtualenvs/django2/bin/python",
+    "code-runner.executorMap": {
+        "python": "~/.virtualenvs/django2/bin/python -u",
+    },
+    "code-runner.runInTerminal": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ],
+    "python.formatting.provider": "yapf"
+}

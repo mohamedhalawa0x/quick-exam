@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+<!-- Custom Page Style -->
+{% block customstyle %}
+.btn-block {
+    display: block;
+    width: 50%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 25%;
+}
+
+.input-group {
+    width: 100%;
+}
+{% endblock customstyle %}
+<!-- Custom Page Style -->
+{% block content %}
+<div class="row">
+    <div class="col-md-5 col-md-offset-1">
+        <div class="main-login main-center">
+                {% if request.user.is_authenticated %}
+                <h1> Already Signed Up !</h1>
+                {% else %}
+                {% include "accounts/signupform.html" with form=form %}
+                {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

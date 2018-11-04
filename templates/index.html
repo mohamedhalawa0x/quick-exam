@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %} Homepage {% endblock title %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div id="login-overlay" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Login to VLX.com</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="well">
+                                <!-- Render Form -->
+                                {% include "identity/signinfom.html" with form=form %}
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="lead">Register now for
+                                <span class="text-success">FREE</span>
+                            </p>
+                            <ul class="list-unstyled" style="line-height: 2">
+                                <li>
+                                    <span class="fa fa-check text-success"></span> See all your orders</li>
+                                <li>
+                                    <span class="fa fa-check text-success"></span> Fast re-order</li>
+                                <li>
+                                    <span class="fa fa-check text-success"></span> Save your favorites</li>
+                                <li>
+                                    <span class="fa fa-check text-success"></span> Fast checkout</li>
+                                <li>
+                                    <span class="fa fa-check text-success"></span> Get a gift
+                                    <small>(only new customers)</small>
+                                </li>
+                                <li>
+                                    <a href="/read-more/">
+                                        <u>Read more</u>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p>
+                                <a href="/accounts/signup" class="btn btn-info btn-block">Yes please, register now!</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
