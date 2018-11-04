@@ -20,7 +20,7 @@ class UserCreationForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('email', 'full_name', 'date_of_birth', 'country', 'address',
-                  'phone_number', 'image')
+                  'phone_number')
         # change date from ordinary input to date input
         widgets = {'date_of_birth': DateInput()}
 
@@ -59,7 +59,7 @@ class UserChangeForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('email', 'password', 'full_name', 'date_of_birth', 'country',
-                  'address', 'phone_number', 'image', 'is_active', 'is_admin')
+                  'address', 'phone_number', 'is_active', 'is_admin')
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.

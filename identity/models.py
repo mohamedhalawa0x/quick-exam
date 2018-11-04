@@ -24,11 +24,10 @@ class UserManager(BaseUserManager):
                     country,
                     address,
                     phone_number,
-                    image,
                     password=None):
         """
         CCreates and saves a user with the given email, date of
-        birth,country, address, phone_number, image,  and password.
+        birth,country, address, phone_number, and password.
         """
         if not email:
             raise ValueError('Users must have an email address')
@@ -40,17 +39,17 @@ class UserManager(BaseUserManager):
             country=country,
             address=address,
             phone_number=phone_number,
-            image=image)
+        )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
     def create_superuser(self, email, full_name, date_of_birth, country,
-                         address, phone_number, image, password):
+                         address, phone_number, password):
         """
         Creates and saves a superuser with the given email, date of
-        birth,country, address, phone_number, image,  and password.
+        birth,country, address, phone_number,  and password.
         """
         user = self.create_user(
             email,
@@ -59,7 +58,6 @@ class UserManager(BaseUserManager):
             country,
             address,
             phone_number,
-            image,
             password,
         )
         user.is_admin = True
@@ -113,9 +111,6 @@ class User(AbstractBaseUser):
     # Date of birth
     date_of_birth = models.DateField()
 
-    # Profile Picture Field
-    image = models.ImageField(upload_to=UPLOAD_TO, null=True, blank=True)
-
     # is active: email
     is_active = models.BooleanField(default=True)
 
@@ -124,8 +119,7 @@ class User(AbstractBaseUser):
 
     # Required Fields
     REQUIRED_FIELDS = [
-        'full_name', 'country', 'date_of_birth', 'address', 'phone_number',
-        'image'
+        'full_name', 'country', 'date_of_birth', 'address', 'phone_number'
     ]
     USERNAME_FIELD = 'email'
     objects = UserManager()
@@ -182,7 +176,7 @@ def post_save_activation_reciever(sender, instance, created, *args, **kwargs):
                 fail_silently=False,
             )
         except Exception as e:
-            pass
+            print(e)
 
 
 post_save.connect(post_save_activation_reciever, sender=EmailActivation)

@@ -1,115 +1,88 @@
-<form class="form-horizontal" method="post" action="#">
+<form method="post" action=".">
     {% csrf_token %}
-    <!-- Personal Info -->
-    <div class="panel panel-default">
-        <div class="panel-heading"> Personal Info
-            <span class="glyphicon glyphicon-info-sign"></span>
-        </div>
-        <div class="panel-body">
-            <!-- First Name -->
-            <div class="input-group">
-                <label for="{{form.first_name.id_for_label}}">First Name</label>
-                {{form.first_name}}
+    <div class="card  bg-transparent">
+        <div class="card-header">
+            <div class="d-flex justify-content-center">
+                <h3 class="text-light"> <i class="fas fa-user-plus text-warning"></i> Sign Up </h3>
             </div>
-            <div class="error-msg" style="color:red;">{{form.first_name.errors}}</div>
-
-            <!-- Last Name -->
-            <div class="input-group">
-                <label for="{{form.last_name.id_for_label}}">Last Name</label>
-                {{form.last_name}}
-            </div>
-            <div class="error-msg" style="color:red;">{{form.last_name.errors}}</div>
-
-            <!-- Birth Date -->
-            <div class="input-group">
-                <label for="{{form.date_of_birth.id_for_label}}">Birth Date</label>
-                {{form.date_of_birth}}
-            </div>
-            <div class="error-msg" style="color:red;">{{form.date_of_birth.errors}}</div>
         </div>
-    </div>
 
-    <!-- Account Info -->
-    <div class="panel panel-default">
-        <div class="panel-heading"> Account
-            <span class="glyphicon glyphicon-user"></span>
-        </div>
-        <div class="panel-body">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="{{form.full_name.id_for_label}}" class="col-sm-3 col-xs-12 col-form-label text-light">Full
+                    Name</label>
+                <div class="col-sm-9 col-xs-12">
+                    {{form.full_name}}
+                </div>
+            </div>
+            <div class="error-msg" style="color:red;">{{form.full_name.errors}}</div>
 
-            <!-- Email Address -->
-            <div class="input-group">
-                <label for="{{form.email.id_for_label}}">Email Address</label>
-                {{form.email}}
+            <div class="form-group row">
+                <label for="{{form.email.id_for_label}}" class="col-sm-3 col-xs-12 col-form-label text-light">Email
+                    Address</label>
+                <div class="col-sm-9 col-xs-12">
+                    {{form.email}}
+                </div>
             </div>
             <div class="error-msg" style="color:red;">{{form.email.errors}}</div>
 
-            <!-- Password -->
-            <div class="input-group">
-                <label for="{{form.password1.id_for_label}}">Password</label>
-                {{form.password1}}
+            <div class="form-group row">
+                <label for="{{form.password1.id_for_label}}" class="col-sm-3 col-xs-12 col-form-label text-light">Password</label>
+                <div class="col-sm-9 col-xs-12">
+                    {{form.password1}}
+                </div>
             </div>
             <div class="error-msg" style="color:red;">{{form.password1.errors}}</div>
 
-            <!-- Confirm Password -->
-            <div class="input-group">
-                <label for="{{form.password2.id_for_label}}">Confirm Password</label>
-                {{form.password2}}
+            <div class="form-group row">
+                <label for="{{form.password2.id_for_label}}" class="col-sm-3 col-xs-12 col-form-label text-light">Verify
+                    Password</label>
+                <div class="col-sm-9 col-xs-12">
+                    {{form.password2}}
+                </div>
             </div>
             <div class="error-msg" style="color:red;">{{form.password2.errors}}</div>
 
-            <!--  Phone number -->
-            <div class="input-group">
-                <label for="{{form.phone_number.id_for_label}}">Phone number</label>
-                {{form.phone_number}}
+            <div class="form-group row">
+                <label for="{{form.phone_number.id_for_label}}" class="col-sm-3 col-xs-12 col-form-label text-light">Phone
+                    Number</label>
+                <div class="col-sm-9 col-xs-12">
+                    {{form.phone_number}}
+                </div>
             </div>
-
             <div class="error-msg" style="color:red;">{{form.phone_number.errors}}</div>
 
-        </div>
-    </div>
+            <div class="form-group row">
+                <label for="{{form.date_of_birth.id_for_label}}" class="col-sm-3 col-xs-12 col-form-label text-light">Birth
+                    Date</label>
+                <div class="col-sm-9 col-xs-12">
+                    {{form.date_of_birth}}
+                </div>
+            </div>
+            <div class="error-msg" style="color:red;">{{form.date_of_birth.errors}}</div>
 
-
-    <!-- location info -->
-    <div class="panel panel-default">
-        <div class="panel-heading"> Location
-            <span class="glyphicon glyphicon-screenshot"></span>
-        </div>
-        <div class="panel-body">
-
-            <!--  Country -->
-            <div class="input-group">
-                <label for="{{form.country.id_for_label}}">Country</label>
-                {{form.country}}
+            <div class="form-group row">
+                <label for="{{form.country.id_for_label}}" class="col-sm-3 col-xs-12 col-form-label text-light">Country</label>
+                <div class="col-sm-9 col-xs-12">
+                    {{form.country}}
+                </div>
             </div>
             <div class="error-msg" style="color:red;">{{form.country.errors}}</div>
 
-            <!--  Address -->
-            <div class="input-group">
-                <label for="{{form.address.id_for_label}}">Address</label>
-                {{form.address}}
+            <div class="form-group row">
+                <label for="{{form.address.id_for_label}}" class="col-sm-3 col-xs-12 col-form-label text-light">Address</label>
+                <div class="col-sm-9 col-xs-12">
+                    {{form.address}}
+                </div>
             </div>
             <div class="error-msg" style="color:red;">{{form.address.errors}}</div>
 
-            <!--  State / Region -->
-            <div class="input-group">
-                <label for="{{form.state_region.id_for_label}}">State / Region</label>
-                {{form.state_region}}
-            </div>
-            <div class="error-msg" style="color:red;">{{form.state_region.errors}}</div>
 
-            <!--    Zip / Postal Code -->
-            <div class="input-group">
-                <label for="{{form.postal_code.id_for_label}}">Zip/Postal Code</label>
-                {{form.postal_code}}
+            <!-- Submit -->
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-light"> Finish !
+                </button>
             </div>
-            <div class="error-msg" style="color:red;">{{form.postal_code.errors}}</div>
-
-        </div>
-        <!-- Submit -->
-        <div class="form-group ">
-            <button type="submit" class="btn btn-block btn-primary pull-right login-button"> Go !
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </button>
         </div>
     </div>
 </form>

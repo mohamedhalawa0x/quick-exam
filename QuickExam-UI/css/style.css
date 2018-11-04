@@ -1,0 +1,100 @@
+@import url('fonts.css');
+
+/********> General Styling <******* */
+html{
+    font-family: BreeSerif-Regular;
+}
+
+/* 100% hieght */
+html,
+body {
+  height: 100%;
+}
+
+/* login background */
+.bg {
+  background: url("../images/background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 0.8;
+}
+/* Registeration background */
+.registration-bg {
+    background: url("../images/reg-form.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 0.8;
+  }
+
+
+/* Username Dropdown fix caret*/
+.username-toggle::after {
+    display:none;
+}
+
+.username-toggle::before{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+
+/********> Card  Styling <******* */
+
+.bg-transparent{
+    background:rgba(0,0,0,0.5);
+}
+
+/********> Labels <******* */
+.label{
+    padding:6px;
+    border-radius: 3px;
+}
+
+.indicator{
+    padding:4px;
+    border-radius: 3px;
+}
+/********> Chapters styling <******* */
+.chapter-list{
+    list-style: none;
+    color:#fff;
+      padding:0px;
+}
+.chapter-list li{
+    background-image: linear-gradient(
+        to left,
+        #023039,
+        #023b45,
+        #034552,
+        #03515f,
+        #045c6d
+      );
+    margin: 5px 0px;
+    padding:0px 5px;
+    border-radius: 5px;
+
+}
+
+.chapter-list li:hover{
+    transition: all 0.5s ease;
+    background-image: linear-gradient(
+        to left,
+        #023039c7,
+        #023b45c7,
+        #034552c7,
+        #03515fc7,
+        #045c6dc7
+      );
+      
+}

@@ -1,52 +1,21 @@
 {% extends "base.html" %}
-{% block title %} Homepage {% endblock title %}
+{% load staticfiles %}
+{% block title %} - Login or signup {% endblock title %}
 {% block content %}
-<div class="row">
-    <div class="col-md-12">
-        <div id="login-overlay" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Login to VLX.com</h4>
+<!-- Start of Login Area-->
+<div class="bg h-100">
+    <!-- Login Area -->
+    <div class="container h-100">
+        <div class="d-flex align-items-center h-100 ">
+            <div class="mx-auto">
+                <div class="d-flex justify-content-start">
+                    <img class="p-2 " height="100" width="100" src="{% static 'images/logo.png'%}">
+                    <h1 class="p-2 align-self-center display-5 text-light"> Quick Exam</h1>
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="well">
-                                <!-- Render Form -->
-                                {% include "identity/signinfom.html" with form=form %}
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <p class="lead">Register now for
-                                <span class="text-success">FREE</span>
-                            </p>
-                            <ul class="list-unstyled" style="line-height: 2">
-                                <li>
-                                    <span class="fa fa-check text-success"></span> See all your orders</li>
-                                <li>
-                                    <span class="fa fa-check text-success"></span> Fast re-order</li>
-                                <li>
-                                    <span class="fa fa-check text-success"></span> Save your favorites</li>
-                                <li>
-                                    <span class="fa fa-check text-success"></span> Fast checkout</li>
-                                <li>
-                                    <span class="fa fa-check text-success"></span> Get a gift
-                                    <small>(only new customers)</small>
-                                </li>
-                                <li>
-                                    <a href="/read-more/">
-                                        <u>Read more</u>
-                                    </a>
-                                </li>
-                            </ul>
-                            <p>
-                                <a href="/accounts/signup" class="btn btn-info btn-block">Yes please, register now!</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                {% include "identity/signinfom.html" with form=form %}
             </div>
         </div>
     </div>
 </div>
+<!-- End of Login Area-->
 {% endblock content %}

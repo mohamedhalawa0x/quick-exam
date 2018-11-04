@@ -14,7 +14,7 @@ class UserAdmin(BaseUserAdmin):
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
     list_display = ('email', 'password', 'full_name', 'date_of_birth',
-                    'country', 'address', 'phone_number', 'image', 'is_admin')
+                    'country', 'address', 'phone_number', 'is_admin')
     list_filter = ('is_admin', )
     fieldsets = (
         ('Identity', {
@@ -22,7 +22,7 @@ class UserAdmin(BaseUserAdmin):
         }),
         ('Personal info', {
             'fields': ('full_name', 'date_of_birth', 'country', 'address',
-                       'phone_number', 'image')
+                       'phone_number')
         }),
         ('Permissions', {
             'fields': ('is_admin', )
@@ -35,7 +35,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = ((None, {
         'classes': ('wide', ),
         'fields': ('email', 'full_name', 'date_of_birth', 'country', 'address',
-                   'phone_number', 'image', 'password1', 'password2')
+                   'phone_number', 'password1', 'password2')
     }), )
     search_fields = ('email', )
     ordering = (
@@ -45,7 +45,6 @@ class UserAdmin(BaseUserAdmin):
         'date_of_birth',
         'country',
         'address',
-        'image',
     )
     filter_horizontal = ()
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import login, logout, get_user_model
 from django.http import HttpResponseRedirect, Http404
-from .forms import UserCreationForm, UserLoginForm
+from identity.forms import UserCreationForm, UserLoginForm
 from .models import EmailActivation
 
 User = get_user_model()
