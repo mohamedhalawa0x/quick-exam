@@ -94,7 +94,7 @@ class Question(models.Model):
 
 class Choice(models.Model):
     content = models.CharField(
-        verbose_name="Question",
+        verbose_name="Choice",
         max_length=255,
         blank=False,
         validators=[
@@ -108,6 +108,9 @@ class Choice(models.Model):
         verbose_name="Is the right choice", default=False)
 
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.content
 
 
 # class StudentsExam(models.Model):

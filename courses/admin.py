@@ -30,10 +30,21 @@ class QuestionAdmin(admin.ModelAdmin):
 
 # Validate Max of 3 Choices Allowed Per Questions
 class ChoiceAdminForm(forms.ModelForm):
-    def clean_chapter(self):
+    def clean_question(self):
+        def clean_is_right(self):
+            is_right1 = self.cleaned_data['is_right']
+            question1 = self.cleaned_data['question']
+            has_one = Choice.objects.filter(
+                is_right=True, question=question1).count()
+            if is_right1 and has_one:
+                raise ValidationError(
+                    'Right Choice was signed to another one !')
+
         question = self.cleaned_data['question']
-        if question.question_set.exclude(pk=self.instance.pk).count() == 3:
+        if question.choice_set.exclude(pk=self.instance.pk).count() == 3:
             raise ValidationError('Max 3 Choices allowed!')
+        else:
+            clean_is_right(self)
         return question
 
 
@@ -45,4 +56,4 @@ class ChoiceAdmin(admin.ModelAdmin):
 admin.site.register(Course)
 admin.site.register(Chapter)
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(Choice)
+admin.site.register(Choice, ChoiceAdmin)

@@ -35,7 +35,7 @@
                                     <i class="indicator bg-success mr-3" title="Success !">S</i>
                                     {% endifequal %} {% endcomment %}
 
-                                    <a href="#" class="btn btn-info ">
+                                    <a href="{% url 'courses:exam' course_id=course.id chapter_id=chapter.id%}" class="btn btn-info ">
                                         Start Exam
                                     </a>
                                 </div>
