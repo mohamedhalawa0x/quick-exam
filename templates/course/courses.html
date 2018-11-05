@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %} - Courses {% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row mt-4 justify-content-center">
+        {% if not courses%}
+        <div class="col-12">
+            <div class="alert alert-warning text-center align-self-center">
+                No Courses Found !
+            </div>
+        </div>
+        {% else %}
+        {% for course in courses %}
+        <!-- Course Card Beginning -->
+        <div class="col-4 mt-4">
+            <div class="card">
+                <div class="card-header  bg-dark text-light">
+                    <h3> {{course.name}}</h3>
+                </div>
+                <div class="card-body bg-warning text-dark">
+                    <p>{{course.details}}</p>
+                </div>
+                <div class="card-footer bg-warning text-dark">
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'courses:chapters' id=course.id%}" class="btn btn-outline-dark">Explore</a>
+                        <div class="align-self-center">course code:
+                            <span class="label bg-success text-light">{{course.code}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Course Card Beginning -->
+        {%endfor%}
+        {%endif%}
+    </div>
+</div>
+{% endblock content %}

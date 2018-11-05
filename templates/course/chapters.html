@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %} - {{course.name}} {% endblock title %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row mt-4 justify-content-center">
+        {% if not chapters %}
+        <div class="col-12">
+            <div class="alert alert-warning text-center align-self-center">
+                No Chapters Found !
+            </div>
+        </div>
+        {% else %}
+        <div class="col-7">
+            <div class="card">
+                <div class="card-header bg-amber lighten-1  ">
+                    <h3> {{course.name}} - Chapters List</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="chapter-list">
+                        {%for chapter in chapters%}
+                        <!-- Chapter Item -->
+                        <li>
+                            <div class="d-flex justify-content-between ">
+                                <div class="p-2 chapter-name align-self-center"> {{chapter.name}} </div>
+                                <div class="p-2">
+                                    {% comment %} {% ifqual chapter.state 'N' %}
+                                    <i class="indicator bg-warning mr-3" title="Not Done Yet !">N</i>
+                                    {% endifequal %}
+
+                                    {% ifqual chapter.state 'F' %}
+                                    <i class="indicator bg-danger mr-3" title="Failed !">F</i>
+                                    {% endifequal %}
+
+                                    {% ifqual chapter.state 'S' %}
+                                    <i class="indicator bg-success mr-3" title="Success !">S</i>
+                                    {% endifequal %} {% endcomment %}
+
+                                    <a href="#" class="btn btn-info ">
+                                        Start Exam
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Chapter Item -->
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

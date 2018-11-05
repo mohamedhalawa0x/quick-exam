@@ -51,14 +51,53 @@ body {
 
 /********> Card  Styling <******* */
 
-.card{
-    border-color:#fff;
-}
 .bg-transparent{
     background:rgba(0,0,0,0.5);
 }
-.errorlist{
-    padding:0px;
+
+/********> Labels <******* */
+.label{
+    padding:6px;
+    border-radius: 3px;
+}
+
+.indicator{
+    padding:4px;
+    border-radius: 3px;
+}
+/********> Chapters styling <******* */
+.chapter-list{
     list-style: none;
-    margin:0px;
+    color:#fff;
+      padding:0px;
+}
+.chapter-list li{
+    background-image: linear-gradient(
+        to left,
+        #023039,
+        #023b45,
+        #034552,
+        #03515f,
+        #045c6d
+      );
+    margin: 5px 0px;
+    padding:0px 5px;
+    border-radius: 5px;
+
+}
+
+.chapter-list li:hover{
+    transition: all 0.5s ease;
+    background-image: linear-gradient(
+        to left,
+        #023039c7,
+        #023b45c7,
+        #034552c7,
+        #03515fc7,
+        #045c6dc7
+      );
+      
+}
+.bg-gradient-yellow{
+    background-image: linear-gradient(to right top, #ffde00, #f4d201, #e9c603, #deba04, #d3af05);
 }
