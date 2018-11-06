@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %} - {{chapter.name}} {% endblock title %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row mt-4 justify-content-center">
+        <h1>{{question.content}}</h1>
+
+        {% if not items %}
+        <div class="col-12">
+            <div class="alert alert-warning text-center align-self-center">
+                No Chapters Found !
+            </div>
+        </div>
+        {% else %}
+        {% csrf_token %}
+        {% for item in items %}
+        <div class="col-12 mt-4">
+            <div class="card ">
+                <div class="card-header bg-pink darken-4">
+                    {{item.Question.content}}
+                </div>
+                <div class="card-body">
+                    <form class="QuestionsForm" id="Questions{{ forloop.counter }}" method="POST" action="."></form>
+                    {{item.form.options}}
+                    {% if form.options.errors%}
+                    <span class="help-block">{{ item.form.options.errors }}</span>
+                    {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-3 mt-4">
+            <div class="d-flex justify-content-center">
+                <button type="submit" id="submitQuestionForms" class="p-2 btn btn-block btn-primary">
+                    Submit
+                </button>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock content %}

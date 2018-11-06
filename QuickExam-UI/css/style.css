@@ -98,3 +98,8 @@ body {
       );
       
 }
+ /** options fix **/
+ [id=id_options]{
+     list-style: none;
+
+ }
